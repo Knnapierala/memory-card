@@ -1,2 +1,2 @@
 # memory-card
-A memory card game
+A memory card game, using HTML, CSS and JavaScript.
