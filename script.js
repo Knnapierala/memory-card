@@ -1,7 +1,8 @@
 const cards = document.querySelectorAll('.game-card');
 
-console.log(cards);
+function swichCard() {
+  this.classList.toggle('swiched')
+}
 
-let karta = document.getElementsByClassName('.game-card');
+cards.forEach(card => card.addEventListener('click', swichCard))
 
-console.log(karta);

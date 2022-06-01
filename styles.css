@@ -31,6 +31,10 @@ body {
   transition: transform .2s;
 }
 
+.game-card.swiched {
+  transform:  rotateY(180deg);
+}
+
 .front-card, .back-card {
   position: absolute;
   width: 100%;
