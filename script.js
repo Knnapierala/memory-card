@@ -10,21 +10,34 @@ function swichCard() {
     //first card
     hasFlippedCard = true;
     firstCard = this;
+
+    return
   } else {
     //second card
     hasFlippedCard = false;
     secondCard = this;
-  }
-    if (firstCard.dataset.shape === secondCard.dataset.shape ) {
-      firstCard.removeEventListener('click', swichCard)
-      secondCard.removeEventListener('click', swichCard)
-    } else {
-      setTimeout(() => { 
-      firstCard.classList.remove('switched');
-      secondCard.classList.remove('switched');
-    }, 1500);
-    }
 
+    checkForMatch();
+  }
 }
+
+function checkForMatch(){
+  let isMatch = firstCard.dataset.shape === secondCard.dataset.shape;
+
+  isMatch ? matchFound() : unflipCards();
+}
+
+function matchFound() {
+  firstCard.removeEventListener('click', swichCard)
+  secondCard.removeEventListener('click', swichCard)
+}
+
+function unflipCards(){
+  setTimeout(() => { 
+    firstCard.classList.remove('swiched');
+    secondCard.classList.remove('swiched');
+  }, 1500);
+}
+
 cards.forEach(card => card.addEventListener('click', swichCard))
 
