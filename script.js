@@ -7,6 +7,8 @@ let firstCard, secondCard
 
 function swichCard() {
   if (lockBoard) return;
+  if (this === firstCard) return;
+
   this.classList.toggle('swiched')
 
   if (!hasFlippedCard) {
@@ -15,13 +17,13 @@ function swichCard() {
     firstCard = this;
 
     return
-  } else {
+  } 
     //second card
     hasFlippedCard = false;
     secondCard = this;
 
     checkForMatch();
-  }
+ 
 }
 
 function checkForMatch(){
