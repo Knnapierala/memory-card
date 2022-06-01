@@ -19,7 +19,6 @@ function swichCard() {
     return
   } 
     //second card
-    hasFlippedCard = false;
     secondCard = this;
 
     checkForMatch();
@@ -35,6 +34,8 @@ function checkForMatch(){
 function matchFound() {
   firstCard.removeEventListener('click', swichCard)
   secondCard.removeEventListener('click', swichCard)
+
+  resetAll();
 }
 
 function unflipCards(){
@@ -44,8 +45,13 @@ function unflipCards(){
     firstCard.classList.remove('swiched');
     secondCard.classList.remove('swiched');
 
-    lockBoard = false;
+    resetAll();
   }, 1500);
+}
+
+function resetAll() {
+  [hasFlippedCard, lockBoard] = [false, false];
+  [firstCard,secondCard] = [null, null];
 }
 
 cards.forEach(card => card.addEventListener('click', swichCard))
