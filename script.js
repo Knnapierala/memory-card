@@ -1,9 +1,12 @@
 const cards = document.querySelectorAll('.game-card');
 
 let hasFlippedCard = false;
+let lockBoard = false;
+
 let firstCard, secondCard
 
 function swichCard() {
+  if (lockBoard) return;
   this.classList.toggle('swiched')
 
   if (!hasFlippedCard) {
@@ -33,9 +36,13 @@ function matchFound() {
 }
 
 function unflipCards(){
+  lockBoard = true;
+
   setTimeout(() => { 
     firstCard.classList.remove('swiched');
     secondCard.classList.remove('swiched');
+
+    lockBoard = false;
   }, 1500);
 }
 
