@@ -16,6 +16,7 @@ body {
   margin: auto;
   display: flex;
   flex-wrap: wrap;
+  perspective: 1000px;
 }
 
 .game-card {
@@ -24,6 +25,8 @@ body {
   height: calc(33.33% - 10px);
   position: relative;
   transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
 }
 
 .game-card:active {
@@ -41,5 +44,10 @@ body {
   height: 100%;
   padding: 20px;
   border-radius: 10px;
-  background-color: rgb(28, 27, 27)
+  background-color: rgb(28, 27, 27);
+  backface-visibility: hidden;
+}
+
+.front-card {
+  transform: rotateY(180deg);
 }
