@@ -17,15 +17,15 @@ function swichCard() {
     firstCard = this;
 
     return
-  } 
-    //second card
-    secondCard = this;
+  }
+  //second card
+  secondCard = this;
 
-    checkForMatch();
- 
+  checkForMatch();
+
 }
 
-function checkForMatch(){
+function checkForMatch() {
   let isMatch = firstCard.dataset.shape === secondCard.dataset.shape;
 
   isMatch ? matchFound() : unflipCards();
@@ -38,10 +38,10 @@ function matchFound() {
   resetAll();
 }
 
-function unflipCards(){
+function unflipCards() {
   lockBoard = true;
 
-  setTimeout(() => { 
+  setTimeout(() => {
     firstCard.classList.remove('swiched');
     secondCard.classList.remove('swiched');
 
@@ -51,15 +51,14 @@ function unflipCards(){
 
 function resetAll() {
   [hasFlippedCard, lockBoard] = [false, false];
-  [firstCard,secondCard] = [null, null];
+  [firstCard, secondCard] = [null, null];
 }
 
 (function shuffle() {
   cards.forEach(card => {
-    let randomPosition = Math.floor(Math.random() *12);
+    let randomPosition = Math.floor(Math.random() * 12);
     card.style.order = randomPosition;
   })
 })()
 
 cards.forEach(card => card.addEventListener('click', swichCard))
-
